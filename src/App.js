@@ -1,9 +1,16 @@
-import './App.css';
+import './styling/App.css';
+import Nav from './components/Nav';
+import { useLoggedInContext } from './context/LoggedIn';
+import Body from './components/Body';
 
 function App() {
+  const {loggedIn } = useLoggedInContext();
   return (
-    <div className="App">
-    </div>
+    <>
+      {  loggedIn.user && <Nav/>}
+      {/* <Body/> */}
+      <Body/>
+    </>
   );
 }
 
