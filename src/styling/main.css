@@ -1,0 +1,78 @@
+.App {
+  background-color: #223a51;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* GOOD-WILL CARGO */
+.company-name {
+  position: absolute;
+  width: 600px;
+  height: 232px;
+  left: 61px;
+  top: 179px;
+  z-index: 2;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 96px;
+  line-height: 116px;
+  color: #ffffff;
+}
+
+.landing-page {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  overflow: hidden;
+  top: 0px;
+  background: #223a51;
+}
+.landing-page .landing-page-img {
+  width: 100vw;
+  height: 200vh;
+  left: -28px;
+  top: 4px;
+  background-image: url("./bg-imgs/WhatsApp Image 2022-12-04 at 18.51.39.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  z-index: 0;
+}
+.landing-page .landing-page-overlay {
+  position: absolute;
+  width: 100vw;
+  height: 200vh;
+  left: 0px;
+  top: 0px;
+  background: rgba(12, 32, 51, 0.726);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+}
+nav {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+  width: 286px;
+  height: 39px;
+  left: 90px;
+  top: 65px;
+}
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "San-serif";
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 39px;
+}/*# sourceMappingURL=main.css.map */
