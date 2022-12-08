@@ -13,15 +13,19 @@ export default function Ships({ cargoShips }) {
   )
 
   function handleBook() {
+    if (bookingParentDiv.current.classList.value.includes("active")){
+      bookingParentDiv.current.classList.remove('active')
+    }else{
+      bookingParentDiv.current.classList.add('active')
+    }
     console.log(bookingParentDiv.current.classList)
-    bookingParentDiv.current.classList.add('active')
   }
   return (
     <>
-      <div ref={bookingParentDiv} className="booking-parent-div">
-        <Booking form={bookingForm}></Booking>
-      </div>
       <div className="cargo-ships-page">
+      <div ref={bookingParentDiv} className="booking-parent-div">
+        {/* <Booking form={bookingForm}></Booking> */}
+      </div>
         {cargoShips.map((ship) => (
           <ShipDiv key={ship.id} ship={ship} handleBook={handleBook}/>
         ))}
@@ -60,7 +64,7 @@ function ShipDiv(props) {
           style={{ backgroundImage: `url(${img_url})` }}
           onClick={displayDetails}
         >
-          <p>{name}</p>
+          <p>{current_location} <strong> to </strong> {destination}</p>
         </div>
         <div id={id} ref={detailsDiv} className="ship-details">
           <div>
