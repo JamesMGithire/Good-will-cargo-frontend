@@ -1,8 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import InputDiv from "../InputDiv";
 
 export default function Login({setLoggedIn}){
-    let userInfo =  {}
+    let userInfo =  {};
+    const navigate = useNavigate();
     const handleChange = (e)=>{
         userInfo = {...userInfo, [e.target.name]: e.target.value}
     }
@@ -27,6 +28,7 @@ export default function Login({setLoggedIn}){
             .then(r=>r.json())
             .then(cargoShips=>{
                 setLoggedIn(prevData=>({...prevData, user:{...prevData.user, cargoShips: cargoShips}}))
+                navigate("/");
             })
         })
     }
