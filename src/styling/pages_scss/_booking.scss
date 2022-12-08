@@ -1,12 +1,14 @@
 .booking-parent-div {
-  position: absolute;
   display: none;
-  z-index: 400;
-  background-color: darkolivegreen;
+  z-index: 2;
+  background-color: rgb(47, 98, 107);
+  opacity: 0.6;
   &.active {
-      width: 100vw;
-      height: 100vh;
+    position: absolute;
+    width: 70vw;
+    height: 80vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }

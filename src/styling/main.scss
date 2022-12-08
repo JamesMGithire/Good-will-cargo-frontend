@@ -81,7 +81,7 @@ input {
   border-bottom: 1px solid #ffffff;
   text-align: center;
   padding-bottom: 1rem;
-  &:placeholder {
+  &::placeholder {
     color: #ffffff;
   }
   &:focus {
@@ -91,8 +91,6 @@ input {
 
 .profile-page,
 .cargo-ships-page {
-  width: 100vw;
-  height: 100vh;
   background-image: url('./bg-imgs/pexels-tom-fisk-3840447.jpg');
   background-repeat: no-repeat;
   background-size: cover;

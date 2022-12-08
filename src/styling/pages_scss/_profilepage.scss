@@ -1,12 +1,12 @@
 .profile-page {
-  
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   .user-div {
     width: 40rem;
     height: 30rem;
-     background: #004748A6;
+    background: #004748a6;
     box-shadow: inset 0px 0px 5px 11px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(7.5px);
     border-radius: 101px;
@@ -14,5 +14,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    .button-div {
+      button {
+        border: none;
+        color: white;
+        padding: 1rem 2rem;
+        margin: 1rem;
+        border-radius: 18px;
+      }
+      .change-password {
+        background: #151057;
+        box-shadow: inset 0px 0px 10px 10px rgba(6, 22, 64, 0.5);
+      }
+      .delete-profile {
+        background: #571010;
+        box-shadow: inset 0px 0px 10px 10px rgba(64, 6, 27, 0.5);
+      }
+    }
+    // .bio{
+    //   input::placeholder{
+    //     color: rgb(199, 199, 199);
+    //   }
+    // }
   }
 }
+

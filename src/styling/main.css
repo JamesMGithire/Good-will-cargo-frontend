@@ -71,6 +71,7 @@ nav *:hover {
 }
 
 .profile-page {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,8 +89,24 @@ nav *:hover {
   justify-content: center;
   align-items: center;
 }
+.profile-page .user-div .button-div button {
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  border-radius: 18px;
+}
+.profile-page .user-div .button-div .change-password {
+  background: #151057;
+  box-shadow: inset 0px 0px 10px 10px rgba(6, 22, 64, 0.5);
+}
+.profile-page .user-div .button-div .delete-profile {
+  background: #571010;
+  box-shadow: inset 0px 0px 10px 10px rgba(64, 6, 27, 0.5);
+}
 
 .cargo-ships-page {
+  height: 79.7vh;
   overflow-y: scroll;
   z-index: 0;
   display: flex;
@@ -120,6 +137,7 @@ nav *:hover {
 .cargo-ships-page .ship-card .ship-img-div:hover p {
   visibility: visible;
   transform: scale(1);
+  font-size: 1.4rem;
 }
 .cargo-ships-page .ship-card .ship-img-div p {
   color: rgb(255, 255, 255);
@@ -173,6 +191,22 @@ nav *:hover {
 }
 .cargo-ships-page .ship-card .ship-details.active div p strong {
   color: #20738f;
+}
+
+.booking-parent-div {
+  display: none;
+  z-index: 2;
+  background-color: rgb(47, 98, 107);
+  opacity: 0.6;
+}
+.booking-parent-div.active {
+  position: absolute;
+  width: 70vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App {
@@ -251,7 +285,13 @@ input {
   text-align: center;
   padding-bottom: 1rem;
 }
-input:placeholder {
+input::-moz-placeholder {
+  color: #ffffff;
+}
+input:-ms-input-placeholder {
+  color: #ffffff;
+}
+input::placeholder {
   color: #ffffff;
 }
 input:focus {
@@ -260,8 +300,6 @@ input:focus {
 
 .profile-page,
 .cargo-ships-page {
-  width: 100vw;
-  height: 100vh;
   background-image: url("./bg-imgs/pexels-tom-fisk-3840447.jpg");
   background-repeat: no-repeat;
   background-size: cover;
