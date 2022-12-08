@@ -12,7 +12,7 @@ export default function Nav(){
     <nav>
         {user?
         <>
-            <NavLink>Account</NavLink>
+            <NavLink to="/me">Account</NavLink>
             <span onClick={handleLogout}>Logout</span>
         </>:
         <NavLink to="/login">Login</NavLink>}

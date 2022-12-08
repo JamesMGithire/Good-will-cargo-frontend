@@ -10,9 +10,15 @@ export default function Body(){
     return(
     <Routes>
         <Route path="/" element={<LandingPage/>}/>
+        {loggedIn.user?
+        <>
+            <Route path="/me" element={<Profile user={loggedIn.user}/>}/>
+            <Route path="/bio" element={<></>}/>
+        </>:
+        <>
         <Route path="/login" element={<Login setLoggedIn={setLoggedIn}/>}/>
         <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn}/>}/>
-        <Route path="/me" element={<Profile user={loggedIn.user}/>}/>
+        </>}
     </Routes>
     );
 }

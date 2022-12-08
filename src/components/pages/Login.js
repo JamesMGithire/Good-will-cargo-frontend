@@ -16,12 +16,12 @@ export default function Login(){
         //     body: JSON.stringify(userInfo)
         // })
     }
-    const loginForm=<form className="login-div" onSubmit={handleLogin}>
+    const loginForm=<form  onSubmit={handleLogin}>
         <div>
             <input type= "text" name="username" onChange={handleChange} placeholder="username"/>
         </div>
         <div>
-            <input type= "text" name="password" onChange={handleChange} placeholder="password"/>
+            <input type= "password" name="password" onChange={handleChange} placeholder="password"/>
         </div>
         <div className="submit-button">
             <button>Login</button>
@@ -31,8 +31,8 @@ export default function Login(){
         </div>
     </form>
     return(
-    <>
+    <div className="login-div">
     <InputDiv form={loginForm}/>
-    </>
+    </div>
     );
 }

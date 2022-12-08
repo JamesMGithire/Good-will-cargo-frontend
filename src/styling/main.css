@@ -1,11 +1,3 @@
-.login-div {
-  width: 100vw;
-  height: 100vh;
-  display: flexbox;
-  justify-content: center;
-  align-items: center;
-}
-
 nav {
   position: absolute;
   display: flex;
@@ -27,12 +19,84 @@ nav a {
   line-height: 39px;
 }
 
+.landing-page {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #223a51;
+}
+.landing-page .landing-page-img,
+.landing-page .landing-page-overlay {
+  width: 100vw;
+  height: 200vh;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  z-index: 0;
+}
+.landing-page .landing-page-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  width: 100vw;
+  height: 200vh;
+  background-image: url("./bg-imgs/WhatsApp Image 2022-12-04 at 18.51.39.jpeg");
+}
+.landing-page .landing-page-overlay {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: rgba(12, 32, 51, 0.726);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+}
+
+.profile-page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./bg-imgs/pexels-tom-fisk-3840447.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-page .user-div {
+  width: 40rem;
+  height: 30rem;
+  background: rgba(0, 71, 72, 0.6509803922);
+  box-shadow: inset 0px 0px 5px 11px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(7.5px);
+          backdrop-filter: blur(7.5px);
+  border-radius: 101px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   background-color: #223a51;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   z-index: 0;
+}
+
+.login-div,
+.signup-div {
+  background-image: url("./bg-imgs/pexels-matthis-volquardsen-2091159.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* GOOD-WILL CARGO */
@@ -50,7 +114,6 @@ nav a {
 }
 
 .main-input-div {
-  position: absolute;
   width: 40rem;
   height: 30rem;
   background: rgba(5, 25, 37, 0.65);
@@ -58,4 +121,42 @@ nav a {
   -webkit-backdrop-filter: blur(7.5px);
           backdrop-filter: blur(7.5px);
   border-radius: 101px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-input-div form * {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+.main-input-div form div {
+  margin-top: 1rem;
+  text-align: center;
+  color: #ffffff;
+}
+.main-input-div form button {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  background-color: #06274f;
+  font-weight: 450;
+  color: #ffffff;
+}
+
+input {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+input:placeholder {
+  color: #ffffff;
+}
+input:focus {
+  outline: none;
 }/*# sourceMappingURL=main.css.map */

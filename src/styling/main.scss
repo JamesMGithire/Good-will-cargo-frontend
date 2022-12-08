@@ -1,36 +1,88 @@
 @import './pages_scss/login';
 @import './pages_scss/nav';
+@import './pages_scss/landingpage';
+@import './pages_scss/profilepage';
+
 .App {
-    background-color: #223a51;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 0;
+  background-color: #223a51;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.login-div,
+.signup-div {
+  background-image: url('./bg-imgs/pexels-matthis-volquardsen-2091159.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* GOOD-WILL CARGO */
+.company-name {
+  position: absolute;
+  left: 61px;
+  top: 179px;
+  z-index: 2;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 96px;
+  line-height: 116px;
+  color: #ffffff;
+}
+
+.main-input-div {
+  width: 40rem;
+  height: 30rem;
+  background: rgba(5, 25, 37, 0.65);
+  box-shadow: inset 0px 0px 5px 11px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(7.5px);
+  border-radius: 101px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    * {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 1.2rem;
+    }
+    div {
+      margin-top: 1rem;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    button {
+      padding: 0.4rem 1rem;
+      border: none;
+      border-radius: 0.6rem;
+      background-color: #06274f;
+      font-weight: 450;
+      color: #ffffff;
+    }
   }
-  
-  /* GOOD-WILL CARGO */
-  .company-name {
-    position: absolute;
-    left: 61px;
-    top: 179px;
-    z-index: 2;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 1000;
-    font-size: 96px;
-    line-height: 116px;
+}
+
+input {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  text-align: center;
+  padding-bottom: 1rem;
+  &:placeholder {
     color: #ffffff;
   }
-  
-  
- 
-
-.main-input-div{
-    position: absolute;
-    width: 40rem;
-    height: 30rem;
-    background: rgba(5, 25, 37, 0.65);
-    box-shadow: inset 0px 0px 5px 11px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(7.5px);
-    border-radius: 101px;
+  &:focus {
+    outline: none;
+  }
 }

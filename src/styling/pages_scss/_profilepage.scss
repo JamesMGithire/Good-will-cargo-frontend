@@ -1,0 +1,23 @@
+.profile-page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./bg-imgs/pexels-tom-fisk-3840447.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .user-div {
+    width: 40rem;
+    height: 30rem;
+     background: #004748A6;
+    box-shadow: inset 0px 0px 5px 11px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(7.5px);
+    border-radius: 101px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
