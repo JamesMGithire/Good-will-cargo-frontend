@@ -5,7 +5,7 @@ import Body from './components/Body';
 import { useEffect } from 'react';
 
 function App() {
-  const {loggedIn, setLoggedIn } = useLoggedInContext();
+  const { setLoggedIn } = useLoggedInContext();
   useEffect(()=>{
     fetch("https://good-will-cargo-spark-production.up.railway.app/me",{
       headers: {"Authorization": `Bearer ${localStorage.getItem("jwt")}`}
