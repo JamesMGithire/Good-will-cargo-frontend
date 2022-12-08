@@ -5,6 +5,7 @@ export default function Nav(){
     const navigate = useNavigate()
     const {loggedIn:{user}} = useLoggedInContext();
     function handleLogout(){
+        localStorage.removeItem("jwt")
         navigate("/")
     }
     console.log(user)
@@ -16,7 +17,7 @@ export default function Nav(){
             <span onClick={handleLogout}>Logout</span>
         </>:
         <NavLink to="/login">Login</NavLink>}
-        <NavLink>Ships</NavLink>
+        <NavLink to="/ships">Ships</NavLink>
     </nav>
     )
 }

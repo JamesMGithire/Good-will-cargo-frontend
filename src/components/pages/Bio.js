@@ -18,7 +18,7 @@ export default function Bio(){
         .then(r=>r.json())
         .then(data=>console.log(data))
     }
-    const bioForm = <form onSubmit={handleSUbmit}>
+    const bioForm = <form onSubmit={handleSubmit}>
         <div>
             <input type="text" placeholder="bio" onChange={handleChange}/>
         </div>

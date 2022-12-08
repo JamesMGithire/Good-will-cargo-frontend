@@ -5,16 +5,33 @@ nav {
     z-index: 2;
     width: 286px;
     height: 39px;
-    left: 90px;
-    top: 65px;
-    a {
-    text-decoration: none;
-    color: #ffffff;
-    font-family: "San-serif";
-    font-family: "Inter";
+    backdrop-filter: blur(17.5px);
+    border-radius: 1.4rem;
+    left: 70vw;
+    top: 2rem;
     font-style: normal;
     font-weight: 200;
     font-size: 22px;
     line-height: 39px;
+    text-shadow: 2px 2px 7px rgb(72, 180, 135);
+    cursor: pointer;
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      font-family: "San-serif";
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 200;
+      font-size: 22px;
+      line-height: 39px;
+  }
+  span{
+    color: #ffffff;
+    font-family: "San-serif";
+    font-family: "Inter";  
+  }
+  *:hover{
+    text-shadow: 2px 2px 10px rgb(51, 111, 189);
+
   }
 }
