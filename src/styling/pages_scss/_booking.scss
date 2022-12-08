@@ -1,0 +1,13 @@
+.booking-parent-div {
+  position: absolute;
+  display: none;
+  z-index: 400;
+  background-color: darkolivegreen;
+  &.active {
+      width: 100vw;
+      height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
