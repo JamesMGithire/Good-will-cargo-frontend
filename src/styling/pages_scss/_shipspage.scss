@@ -1,0 +1,35 @@
+.cargo-ships-page{
+    overflow-y: scroll;
+    z-index: 0;
+    display: flex;
+    flex-direction: row;
+    padding:4rem;
+    
+    .ship-card{
+        margin:3rem;
+        z-index: 1;
+        .ship-img-div{
+            width: 20rem;
+            height: 20rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            &:hover{
+                cursor: pointer;
+                filter: brightness(0.4);
+            }
+        }
+        &.active{
+            height: fit-content;
+        }
+        .ship-details{
+            display: none;
+            z-index: 2;
+            &.active{
+                position: absolute;
+                display: block;
+                z-index: 3;
+            }
+        }
+    }
+}

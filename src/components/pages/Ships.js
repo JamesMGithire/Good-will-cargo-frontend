@@ -11,6 +11,7 @@ export default function Ships({ cargoShips }) {
 function ShipDiv(props) {
   const {
     name,
+    img_url,
     capacity,
     remaining,
     current_location,
@@ -21,7 +22,7 @@ function ShipDiv(props) {
   console.log(name)
   return (
     <div className="ship-card">
-      <div className="ship-img-div"></div>
+      <div className="ship-img-div" style={{"backgroundImage": `url(${img_url})`}}></div>
       <div className="ship-details">
         <div>
           <p>Name :</p><p> {name}</p>

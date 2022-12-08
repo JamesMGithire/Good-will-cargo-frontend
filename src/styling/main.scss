@@ -97,3 +97,10 @@ input {
   background-size: cover;
   background-position: center;
 }
+*::-webkit-scrollbar {
+  width:  0;
+  height: 0;
+}
+*{
+  transition: 1.7s;
+}

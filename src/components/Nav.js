@@ -3,9 +3,10 @@ import { useLoggedInContext } from "../context/LoggedIn";
 
 export default function Nav(){
     const navigate = useNavigate()
-    const {loggedIn:{user}} = useLoggedInContext();
+    const {loggedIn:{user}, setLoggedIn} = useLoggedInContext();
     function handleLogout(){
         localStorage.removeItem("jwt")
+        setLoggedIn({user:null})
         navigate("/")
     }
     console.log(user)

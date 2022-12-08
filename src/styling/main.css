@@ -89,6 +89,43 @@ nav *:hover {
   align-items: center;
 }
 
+.cargo-ships-page {
+  overflow-y: scroll;
+  z-index: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 4rem;
+}
+.cargo-ships-page .ship-card {
+  margin: 3rem;
+  z-index: 1;
+}
+.cargo-ships-page .ship-card .ship-img-div {
+  width: 20rem;
+  height: 20rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.cargo-ships-page .ship-card .ship-img-div:hover {
+  cursor: pointer;
+  filter: brightness(0.4);
+}
+.cargo-ships-page .ship-card.active {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.cargo-ships-page .ship-card .ship-details {
+  display: none;
+  z-index: 2;
+}
+.cargo-ships-page .ship-card .ship-details.active {
+  position: absolute;
+  display: block;
+  z-index: 3;
+}
+
 .App {
   background-color: #223a51;
   width: 100vw;
@@ -180,4 +217,13 @@ input:focus {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+* {
+  transition: 1.7s;
 }/*# sourceMappingURL=main.css.map */
