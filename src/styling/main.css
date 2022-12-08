@@ -97,33 +97,82 @@ nav *:hover {
   padding: 4rem;
 }
 .cargo-ships-page .ship-card {
-  margin: 3rem;
+  max-height: 50vh;
+  margin: 2rem 1.5rem 0 1.5rem;
   z-index: 1;
 }
 .cargo-ships-page .ship-card .ship-img-div {
-  width: 20rem;
-  height: 20rem;
+  width: 17rem;
+  height: 17rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 39px;
+  z-index: 3;
 }
 .cargo-ships-page .ship-card .ship-img-div:hover {
   cursor: pointer;
   filter: brightness(0.4);
 }
-.cargo-ships-page .ship-card.active {
+.cargo-ships-page .ship-card .ship-img-div:hover p {
+  visibility: visible;
+  transform: scale(1);
+}
+.cargo-ships-page .ship-card .ship-img-div p {
+  color: rgb(255, 255, 255);
+  transform: scale(0);
+  transition: 0.9s;
+  opacity: 1.2;
+  visibility: hidden;
+}
+.cargo-ships-page .ship-card .ship-details {
+  z-index: -1;
+  height: 0rem;
+  transition: 0.2s;
+}
+.cargo-ships-page .ship-card .ship-details div {
+  display: none;
+}
+.cargo-ships-page .ship-card .ship-details button {
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1rem;
+}
+.cargo-ships-page .ship-card .ship-details.active {
+  margin-top: -2.5rem;
+  padding-top: 4rem;
+  width: 17rem;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  display: contents;
+  position: relative;
+  padding: 2rem 0rem;
+  z-index: -1;
+  border-bottom-right-radius: 39px;
+  border-bottom-left-radius: 39px;
+  background: #40636f;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.cargo-ships-page .ship-card .ship-details {
-  display: none;
-  z-index: 2;
+.cargo-ships-page .ship-card .ship-details.active div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.cargo-ships-page .ship-card .ship-details.active {
-  position: absolute;
-  display: block;
-  z-index: 3;
+.cargo-ships-page .ship-card .ship-details.active div p {
+  margin: 0.4rem 1rem;
+  color: white;
+  display: inline-flex;
+}
+.cargo-ships-page .ship-card .ship-details.active div p strong {
+  color: #20738f;
 }
 
 .App {
@@ -225,5 +274,5 @@ input:focus {
 }
 
 * {
-  transition: 1.7s;
+  transition: 0.7s;
 }/*# sourceMappingURL=main.css.map */

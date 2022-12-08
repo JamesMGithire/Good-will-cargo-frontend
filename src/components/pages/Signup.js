@@ -11,7 +11,7 @@ export default function Signup({setLoggedIn}){
         e.preventDefault();
         console.log(userInfo);
         navigate("/bio")
-        // fetch("https://good-will-cargo-spark-production.up.railway.app/signup",{
+        // fetch("/signup",{
         //     method: "POST",
         //     headers: {"Content-Type": "application/json"},
         //     body: JSON.stringify(userInfo)
@@ -20,7 +20,7 @@ export default function Signup({setLoggedIn}){
         // .then(data=>{
         //     localStorage.setItem("jwt", data.jwt)
         //     setLoggedIn({user: data.user})
-        //     fetch("https://good-will-cargo-spark-production.up.railway.app/user_cargos",{
+        //     fetch("/user_cargos",{
         //             headers: {"Authorization": `Bearer ${localStorage.getItem("jwt")}`}
         //     })
         //     .then(r=>r.json())

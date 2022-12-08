@@ -2,6 +2,7 @@
   "name": "awaiting_main_group_frontend_completion",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://good-will-cargo-spark-production.up.railway.app/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

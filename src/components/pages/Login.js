@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import InputDiv from "../InputDiv";
 
-export default function Login(){
+export default function Login({setLoggedIn}){
     let userInfo =  {}
     const handleChange = (e)=>{
         userInfo = {...userInfo, [e.target.name]: e.target.value}
@@ -10,11 +10,25 @@ export default function Login(){
     function handleLogin(e){
         e.preventDefault();
         console.log(userInfo)
-        // fetch("https://good-will-cargo-spark-production.up.railway.app/login",{
-        //     method: "POST",
-        //     headers: {"Content-Type": "application/json"},
-        //     body: JSON.stringify(userInfo)
-        // })
+        fetch("/login",{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(userInfo)
+        })
+        .then(r=>r.json())
+        .then(data=>{
+            localStorage.setItem("jwt", data.jwt);
+            fetch("/user_cargos",{
+                headers:{
+                    'Authorization': `Bearer ${data.jwt}`,
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(r=>r.json())
+            .then(cargoShips=>{
+                setLoggedIn(prevData=>({...prevData, user:{...prevData.user, cargoShips: cargoShips}}))
+            })
+        })
     }
     const loginForm=<form  onSubmit={handleLogin}>
         <div>

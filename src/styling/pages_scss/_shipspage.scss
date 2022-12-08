@@ -1,35 +1,84 @@
-.cargo-ships-page{
-    overflow-y: scroll;
-    z-index: 0;
-    display: flex;
-    flex-direction: row;
-    padding:4rem;
-    
-    .ship-card{
-        margin:3rem;
-        z-index: 1;
-        .ship-img-div{
-            width: 20rem;
-            height: 20rem;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            &:hover{
-                cursor: pointer;
-                filter: brightness(0.4);
-            }
-        }
-        &.active{
-            height: fit-content;
-        }
-        .ship-details{
-            display: none;
-            z-index: 2;
-            &.active{
-                position: absolute;
-                display: block;
-                z-index: 3;
-            }
-        }
+.cargo-ships-page {
+  overflow-y: scroll;
+  z-index: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 4rem;
+  
+  .ship-card {
+      max-height: 50vh;
+    margin: 2rem 1.5rem 0 1.5rem;
+    z-index: 1;
+    .ship-img-div {
+      width: 17rem;
+      height: 17rem;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 39px;
+      z-index: 3;
+      &:hover {
+        cursor: pointer;
+        filter: brightness(0.4);
+      }
+      &:hover p {
+        visibility: visible;
+        transform: scale(1);
+      }
+      p {
+        color: rgb(255, 255, 255);
+        transform: scale(0);
+        transition: 0.9s;
+        opacity: 1.2;
+        visibility: hidden;
+      }
     }
+    .ship-details {
+      z-index: -1;
+      height: 0rem;
+      transition: 0.2s;
+      div {
+        display: none;
+      }
+      button {
+        border: none;
+        border-radius: 0.7rem;
+        padding: 0.4rem 1rem;
+      }
+      &.active {
+        margin-top: -2.5rem;
+        padding-top: 4rem;
+        width: 17rem;
+        height: fit-content;
+        display: contents;
+        position: relative;
+        padding: 2rem 0rem;
+        z-index: -1;
+        border-bottom-right-radius: 39px;
+        border-bottom-left-radius: 39px;
+        background: #40636f;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          p {
+            margin: 0.4rem 1rem;
+            color: white;
+            display: inline-flex;
+            strong{
+                color:#20738f;
+            }
+          }
+        }
+      }
+    }
+  }
 }

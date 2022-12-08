@@ -1,8 +1,10 @@
+import { useRef } from 'react'
+
 export default function Ships({ cargoShips }) {
   return (
     <div className="cargo-ships-page">
       {cargoShips.map((ship) => (
-        <ShipDiv ship={ship} />
+        <ShipDiv key={ship.id} ship={ship} />
       ))}
     </div>
   )
@@ -10,6 +12,7 @@ export default function Ships({ cargoShips }) {
 
 function ShipDiv(props) {
   const {
+    id,
     name,
     img_url,
     capacity,
@@ -19,28 +22,49 @@ function ShipDiv(props) {
     leaving_date,
     rate_per_cargo,
   } = props.ship
-  console.log(name)
+
+  const detailsDiv = useRef()
+
+  function displayDetails() {
+    if (detailsDiv.current.classList.value.includes('active')) {
+      detailsDiv.current.classList.remove("active")
+    } else {
+      detailsDiv.current.classList.add("active")
+    }
+  }
+
   return (
     <div className="ship-card">
-      <div className="ship-img-div" style={{"backgroundImage": `url(${img_url})`}}></div>
-      <div className="ship-details">
+      <div
+        className="ship-img-div"
+        style={{ backgroundImage: `url(${img_url})` }}
+        onClick={displayDetails}
+      >
+        <p>{name}</p>
+      </div>
+      <div id={id} ref={detailsDiv} className="ship-details">
         <div>
-          <p>Name :</p><p> {name}</p>
+          <p>Name :</p>
+          <p> {name}</p>
         </div>
         <div>
-          <p>{current_location + 'to' + destination}</p>
+          <p>{current_location} <strong> to </strong> {destination}</p>
         </div>
         <div>
-          <p>Leaving:</p><p> {leaving_date}</p>
+          <p>Leaving :</p>
+          <p> {leaving_date}</p>
         </div>
         <div>
-          <p>Rate Per Cargo:</p><p>{rate_per_cargo}</p>
+          <p>Rate Per Cargo :</p>
+          <p>Ksh.{rate_per_cargo}</p>
         </div>
         <div>
-          <p>Capacity: </p><p>{capacity}</p>
+          <p>Capacity :</p>
+          <p>{capacity}</p>
         </div>
         <div>
-          <p>Remaining: </p><p>{remaining}</p>
+          <p>Remaining : </p>
+          <p>{remaining}</p>
         </div>
         <button>Book</button>
       </div>
