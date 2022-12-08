@@ -7,7 +7,7 @@ export function useLoggedInContext() {
 }
 
 function LoggedInProvider({ children }) {
-    const [loggedIn, setLoggedIn] = useState({user: true});
+    const [loggedIn, setLoggedIn] = useState({user: null});
     return (
         <loggedInContext.Provider value={{ loggedIn, setLoggedIn }}>
             {children}

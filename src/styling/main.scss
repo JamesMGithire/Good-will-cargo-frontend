@@ -1,0 +1,45 @@
+@import './pages_scss/login';
+@import './pages_scss/nav';
+.App {
+    background-color: #223a51;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  /* GOOD-WILL CARGO */
+  .company-name {
+    position: absolute;
+    left: 61px;
+    top: 179px;
+    z-index: 2;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 96px;
+    line-height: 116px;
+    color: #ffffff;
+  }
+  
+  
+  nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    width: 286px;
+    height: 39px;
+    left: 90px;
+    top: 65px;
+    a {
+    text-decoration: none;
+    color: #ffffff;
+    font-family: "San-serif";
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 22px;
+    line-height: 39px;
+  }
+}
