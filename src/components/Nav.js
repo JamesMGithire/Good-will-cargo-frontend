@@ -7,14 +7,15 @@ export default function Nav(){
     function handleLogout(){
         navigate("/")
     }
+    console.log(user)
     return(
     <nav>
-        {user?<>
-        <NavLink>Account</NavLink>
-        <span onClick={handleLogout}>Logout</span>
-        </>:<>
-        <NavLink>Login</NavLink>
-        </>}
+        {user?
+        <>
+            <NavLink>Account</NavLink>
+            <span onClick={handleLogout}>Logout</span>
+        </>:
+        <NavLink to="/login">Login</NavLink>}
         <NavLink>Ships</NavLink>
     </nav>
     )

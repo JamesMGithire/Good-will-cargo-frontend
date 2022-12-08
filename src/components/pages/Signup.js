@@ -1,4 +1,5 @@
 import InputDiv from "../InputDiv";
+import { NavLink } from "react-router-dom";
 
 export default function Signup({setLoggedIn}){
     let userInfo = {}
@@ -27,9 +28,18 @@ export default function Signup({setLoggedIn}){
         // })
         // .catch(e=>console.error(e))
     }
-    const signupForm=<form onSubmit={handleSignup}>
+    const signupForm=<form className="signup-div" onSubmit={handleSignup}>
         <div>
-            <input type="text" placeholder="username" onChange={handleChange}/>
+            <input type= "text" name="username" onChange={handleChange} placeholder="username"/>
+        </div>
+        <div>
+            <input type= "text" name="password" onChange={handleChange} placeholder="password"/>
+        </div>
+        <div className="submit-button">
+            <button>Login</button>
+        </div>
+        <div>
+            <span>Don't have an account?   <NavLink to="/signup">Signup</NavLink></span>
         </div>
     </form>
     return(

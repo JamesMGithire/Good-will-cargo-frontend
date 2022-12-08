@@ -1,36 +1,7 @@
-.landing-page {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    left: 0px;
-    overflow: hidden;
-    top: 0px;
-    background: #223a51;
-    .landing-page-img, .landing-page-overlay{
-    width: 100vw;
-    height: 200vh;
-    border-top-left-radius: 100%;
-    border-top-right-radius: 100%;
-    z-index: 0;
-}
-.landing-page-img {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top;
-    width: 100vw;
-    height: 200vh;
-    left: -28px;
-    top: 4px;
-    background-image: url("./bg-imgs/WhatsApp Image 2022-12-04 at 18.51.39.jpeg");
-  }
-  .landing-page-overlay {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    background: rgba(12, 32, 51, 0.726);
-    -webkit-backdrop-filter: blur(2px);
-            backdrop-filter: blur(2px);
-    border-top-left-radius: 100%;
-    border-top-right-radius: 100%;
-  }
+.login-div{
+    width:100vw;
+    height:100vh;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
 }

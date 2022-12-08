@@ -23,23 +23,14 @@
   }
   
   
-  nav {
+ 
+
+.main-input-div{
     position: absolute;
-    display: flex;
-    justify-content: space-between;
-    z-index: 2;
-    width: 286px;
-    height: 39px;
-    left: 90px;
-    top: 65px;
-    a {
-    text-decoration: none;
-    color: #ffffff;
-    font-family: "San-serif";
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 200;
-    font-size: 22px;
-    line-height: 39px;
-  }
+    width: 40rem;
+    height: 30rem;
+    background: rgba(5, 25, 37, 0.65);
+    box-shadow: inset 0px 0px 5px 11px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(7.5px);
+    border-radius: 101px;
 }
