@@ -1,14 +1,15 @@
 .cargo-ships-page {
-  height: 79.7vh;
+  height: 100vh;
   overflow-y: scroll;
   z-index: 0;
   display: flex;
   flex-direction: row;
-  padding: 4rem;
+  padding: 4rem 3rem 0 2rem;
   .ship-card {
     max-height: 50vh;
     margin: 2rem 1.5rem 0 1.5rem;
     z-index: 1;
+
     * {
       cursor: pointer;
     }
@@ -24,12 +25,14 @@
       overflow: hidden;
       border-radius: 39px;
       z-index: 3;
+
       filter: brightness(0.6);
-      &.active{
+      &.active {
         p {
-        transform: scale(0);
-        visibility: hidden;
-      }}
+          transform: scale(0);
+          visibility: hidden;
+        }
+      }
       p {
         visibility: visible;
         transform: scale(1);
@@ -43,6 +46,7 @@
       z-index: -1;
       height: 0rem;
       transition: 0.2s;
+
       div {
         display: none;
       }
@@ -51,10 +55,20 @@
         border: none;
         border-radius: 0.7rem;
         padding: 0.4rem 1rem;
+        &#cancel-booking {
+          display: none;
+          margin: 0;
+          color: rgb(255, 255, 255);
+          background-color: rgb(92, 32, 32);
+          border: none;
+        }
       }
       &.active {
+        #cancel-booking {
+          display: block;
+        }
         margin-top: -2.5rem;
-        padding-top: 4rem;
+        padding-top: 7rem;
         width: 17rem;
         height: fit-content;
         position: relative;

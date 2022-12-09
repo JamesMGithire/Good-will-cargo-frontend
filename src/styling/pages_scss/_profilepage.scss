@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: -1;
   .user-div {
     width: 40rem;
     height: 30rem;
@@ -15,10 +16,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    div{
+    div {
       color: white;
       font-size: 1.2rem;
-      input::placeholder{
+      input::placeholder {
         font-size: 1.2rem;
       }
     }
@@ -42,32 +43,44 @@
   }
 }
 
-.user-cargos {
-  background: #004748a6;
+#user-cargos {
   width: 100vw;
   height: 100vh;
-  display: flex;
+  padding: 4rem 3rem 0 0;
+  z-index: 1;
+  .ship-card {
+    z-index: 2;
+    .ship-details {
+      div {
+        p {
+          margin: 0.4rem 0 0 0;
+          padding: 0;
+        }
+      }
+    }
+  }
 }
 
-.page-scroller{
-  position: absolute;
+.page-scroller {
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  right:5vw;
-  top:40vh;
+  right: 5vw;
+  top: 60vh;
+  z-index: 4;
   width: 2rem;
   height: 6rem;
-  border:1px;
+  border: 1px;
   border-style: solid;
   border-radius: 1rem;
-  border-color: rgba(0, 0, 0, 0.25);
-  a{
-    div{
+  border-color: rgba(236, 236, 236, 0.795);
+  a {
+    div {
       width: 1rem;
       background-color: white;
-      height:1rem;
+      height: 1rem;
       margin: 1rem 0;
       border-radius: 50%;
     }

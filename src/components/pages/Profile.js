@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import { useLoggedInContext } from '../../context/LoggedIn'
 import '../../styling/JavaScript/profilePageStyle'
+import ShipDiv from './ShipDiv'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Profile({ user }) {
   const nav = useNavigate();
-  console.log(user.cargos)
   const { setLoggedIn } = useLoggedInContext();
   function deleteProfile() {
     fetch('/me', {
@@ -12,16 +13,24 @@ export default function Profile({ user }) {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
         'Content-Type': 'application/json',
-      }
-    })
-    .then(r=>{
-      if(r.ok){
-        localStorage.removeItem("jwt");
-        setLoggedIn(()=>({user:null}));
-        nav("/");
+      },
+    }).then((r) => {
+      if (r.ok) {
+        localStorage.removeItem('jwt')
+        setLoggedIn(() => ({ user: null }))
+        nav('/')
       }
     })
   }
+
+  function handleChangeClick(cargo_ship){
+      console.log(cargo_ship)
+  }
+
+  function handleCancelClick(cargo_ship){
+    console.log(cargo_ship)
+  }
+  
   return (
     <>
       <div className="page-scroller">
@@ -43,13 +52,26 @@ export default function Profile({ user }) {
             />
           </div>
           <div className="button-div">
-            <button className="change-password">Change Password</button>
-            <button className="delete-profile" onClick={deleteProfile}>Delete Profile</button>
+            <button className="change-password">Change Bio</button>
+            <button className="delete-profile" onClick={deleteProfile}>
+              Delete Profile
+            </button>
           </div>
         </div>
       </div>
-      <div id="user-cargos" className="user-cargos">
-        {}
+      <div id="user-cargos" className="cargo-ships-page">
+        {user.cargos &&
+          user.cargos.map((cargo) => (
+            <ShipDiv
+              key={uuidv4()}
+              ship={cargo.cargo_ship}
+              amount={cargo.amount}
+              count={cargo.count}
+              handleChangeClick={handleChangeClick}
+              handleCancelClick={handleCancelClick}
+            />
+          ))}
+        <div />
       </div>
     </>
   )

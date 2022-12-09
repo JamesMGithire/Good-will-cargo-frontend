@@ -14,7 +14,7 @@ export default function Body(){
     useEffect(()=>{
         fetch("/cargo_ships")
         .then(r=>r.json())
-        .then(cargoShips=>setCargoShips(cargoShips))
+        .then(cargoShips=>setCargoShips(cargoShips.reverse()))
     },[])
     
     const {setLoggedIn, loggedIn} = useLoggedInContext();
@@ -30,7 +30,7 @@ export default function Body(){
         <Route path="/login" element={<Login setLoggedIn={setLoggedIn}/>}/>
         <Route path="/signup" element={<Signup setLoggedIn={setLoggedIn}/>}/>
         </>}
-        <Route path="/ships" element={<Ships cargoShips= {cargoShips}/>}/>
+        <Route path="/ships" element={<Ships setCargoShips={setCargoShips} cargoShips= {cargoShips}/>}/>
     </Routes>
     );
 }

@@ -1,5 +1,5 @@
 nav {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   z-index: 2;
@@ -42,6 +42,7 @@ nav *:hover {
   height: 100vh;
   overflow: hidden;
   background: #223a51;
+  z-index: 0;
 }
 .landing-page .landing-page-img,
 .landing-page .landing-page-overlay {
@@ -49,9 +50,9 @@ nav *:hover {
   height: 200vh;
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
-  z-index: 0;
 }
 .landing-page .landing-page-img {
+  z-index: 0;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -61,13 +62,37 @@ nav *:hover {
 }
 .landing-page .landing-page-overlay {
   position: absolute;
+  z-index: 1;
   left: 0px;
   top: 0px;
-  background: rgba(12, 32, 51, 0.726);
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  background: rgba(12, 32, 51, 0.774);
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
+}
+.landing-page .company {
+  position: absolute;
+  z-index: 2;
+  left: 61px;
+  top: 179px;
+  font-family: "Inter";
+  font-weight: 800;
+  text-align: left;
+  color: #ffffff;
+}
+.landing-page .company-name {
+  z-index: 2;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 1000;
+  font-size: 96px;
+  line-height: 116px;
+}
+.landing-page .tag-line {
+  position: relative;
+  font-weight: 200;
+  top: -4rem;
+  font-size: 20px;
+  left: 1rem;
 }
 
 .profile-page {
@@ -76,6 +101,7 @@ nav *:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: -1;
 }
 .profile-page .user-div {
   width: 40rem;
@@ -119,27 +145,35 @@ nav *:hover {
   box-shadow: inset 0px 0px 10px 10px rgba(64, 6, 27, 0.5);
 }
 
-.user-cargos {
-  background: rgba(0, 71, 72, 0.6509803922);
+#user-cargos {
   width: 100vw;
   height: 100vh;
-  display: flex;
+  padding: 4rem 3rem 0 0;
+  z-index: 1;
+}
+#user-cargos .ship-card {
+  z-index: 2;
+}
+#user-cargos .ship-card .ship-details div p {
+  margin: 0.4rem 0 0 0;
+  padding: 0;
 }
 
 .page-scroller {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   right: 5vw;
-  top: 40vh;
+  top: 60vh;
+  z-index: 4;
   width: 2rem;
   height: 6rem;
   border: 1px;
   border-style: solid;
   border-radius: 1rem;
-  border-color: rgba(0, 0, 0, 0.25);
+  border-color: rgba(236, 236, 236, 0.795);
 }
 .page-scroller a div {
   width: 1rem;
@@ -150,12 +184,12 @@ nav *:hover {
 }
 
 .cargo-ships-page {
-  height: 79.7vh;
+  height: 100vh;
   overflow-y: scroll;
   z-index: 0;
   display: flex;
   flex-direction: row;
-  padding: 4rem;
+  padding: 4rem 3rem 0 2rem;
 }
 .cargo-ships-page .ship-card {
   max-height: 50vh;
@@ -205,9 +239,16 @@ nav *:hover {
   border-radius: 0.7rem;
   padding: 0.4rem 1rem;
 }
+.cargo-ships-page .ship-card .ship-details button#cancel-booking {
+  display: none;
+  margin: 0;
+  color: rgb(255, 255, 255);
+  background-color: rgb(92, 32, 32);
+  border: none;
+}
 .cargo-ships-page .ship-card .ship-details.active {
   margin-top: -2.5rem;
-  padding-top: 4rem;
+  padding-top: 7rem;
   width: 17rem;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -224,6 +265,9 @@ nav *:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.cargo-ships-page .ship-card .ship-details.active #cancel-booking {
+  display: block;
 }
 .cargo-ships-page .ship-card .ship-details.active div {
   display: flex;
@@ -320,6 +364,9 @@ nav *:hover {
 
 .App {
   background-color: #223a51;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -340,19 +387,6 @@ nav *:hover {
 }
 
 /* GOOD-WILL CARGO */
-.company-name {
-  position: absolute;
-  left: 61px;
-  top: 179px;
-  z-index: 2;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 1000;
-  font-size: 96px;
-  line-height: 116px;
-  color: #ffffff;
-}
-
 .main-input-div {
   width: 40rem;
   height: 30rem;

@@ -39,7 +39,7 @@ export default function ShipDiv(props) {
             {current_location} <strong> to </strong> {destination}
           </p>
         </div>
-        <div id={id} ref={detailsDiv} className="ship-details">
+        <div id={id} ref={detailsDiv} className={props.count? "ship-details profile" : "ship-details"}>
           <div>
             <p>Name :</p>
             <p> {name}</p>
@@ -65,7 +65,13 @@ export default function ShipDiv(props) {
             <p>Remaining : </p>
             <p>{remaining}</p>
           </div>
-          {props.handleBook && <button onClick={() => props.handleBook(props.ship)}>Book</button>}
+          {props.count && <div><p>Booked : </p><p>{props.count}</p></div>}
+          {props.handleBook ? <button onClick={() => props.handleBook(props.ship)}>Book</button>:
+          <>
+          <button id="cancel-booking" onClick={()=>props.handleCancelClick(props.ship)}>Cancel</button>
+          <button onClick={()=>props.handleChangeClick(props.ship)}>Change Details</button>
+          </>}
+          {props.amount && <div><p>Total : </p><p>Ksh. {props.amount.toLocaleString()}</p></div>}
         </div>
       </div>
     </>
