@@ -4,6 +4,7 @@
 @import './pages_scss/profilepage';
 @import './pages_scss/shipspage';
 @import './pages_scss/booking';
+@import './pages_scss/bio';
 
 .App {
   background-color: #223a51;
@@ -14,7 +15,7 @@
 }
 
 .login-div,
-.signup-div {
+.signup-div, .bio-div {
   background-image: url('./bg-imgs/pexels-matthis-volquardsen-2091159.jpg');
   background-repeat: no-repeat;
   background-size: cover;

@@ -10,7 +10,6 @@ export default function Login({setLoggedIn}){
 
     function handleLogin(e){
         e.preventDefault();
-        console.log(userInfo)
         fetch("/login",{
             method: "POST",
             headers: {"Content-Type": "application/json"},

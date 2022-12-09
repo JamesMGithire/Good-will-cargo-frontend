@@ -10,25 +10,18 @@ export default function Signup({setLoggedIn}){
     function handleSignup(e){
         e.preventDefault();
         console.log(userInfo);
-        navigate("/bio")
-        // fetch("/signup",{
-        //     method: "POST",
-        //     headers: {"Content-Type": "application/json"},
-        //     body: JSON.stringify(userInfo)
-        // })
-        // .then(r=>r.json())
-        // .then(data=>{
-        //     localStorage.setItem("jwt", data.jwt)
-        //     setLoggedIn({user: data.user})
-        //     fetch("/user_cargos",{
-        //             headers: {"Authorization": `Bearer ${localStorage.getItem("jwt")}`}
-        //     })
-        //     .then(r=>r.json())
-        //     .then(cargos=>{
-        //         setLoggedIn(prevData=>({user:{...prevData.user,cargos: cargos}}))
-        //     })
-        // })
-        // .catch(e=>console.error(e))
+        fetch("/signup",{
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(userInfo)
+        })
+        .then(r=>r.json())
+        .then(data=>{
+            localStorage.setItem("jwt", data.jwt);
+            setLoggedIn({user: data.user});
+            navigate("/bio");
+            })
+        .catch(e=>console.error(e))
     }
     const signupForm=<form onSubmit={handleSignup}>
         <div>

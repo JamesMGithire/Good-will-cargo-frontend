@@ -15,6 +15,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    div{
+      color: white;
+      font-size: 1.2rem;
+      input::placeholder{
+        font-size: 1.2rem;
+      }
+    }
     .button-div {
       button {
         border: none;

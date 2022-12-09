@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import {useLoggedInContext} from "../context/LoggedIn";
 import { useEffect, useState } from "react";
 import Ships from "./pages/Ships";
+import Bio from "./pages/Bio";
 
 export default function Body(){
 
@@ -23,7 +24,7 @@ export default function Body(){
         {loggedIn.user?
         <>
             <Route path="/me" element={<Profile user={loggedIn.user}/>}/>
-            <Route path="/bio" element={<></>}/>
+            <Route path="/bio" element={<Bio/>}/>
         </>:
         <>
         <Route path="/login" element={<Login setLoggedIn={setLoggedIn}/>}/>

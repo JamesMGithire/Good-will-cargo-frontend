@@ -35,13 +35,20 @@
         text-align: center;
         * {
           margin-top: 1rem;
+          color: #ffffff;
+          font-family: 'Inter';
+          font-style: normal;
+          font-weight: 300;
           font-size: 1.2rem;
-          font-weight: 600;
+        }
+        div {
+          margin-top: 1rem;
+          text-align: center;
           color: #ffffff;
         }
         button {
-          background: #024ba3;
-          box-shadow: inset 0px 0px 5px 11px rgba(8, 46, 102, 0.589);
+          background: #023c83;
+          box-shadow: inset 0px 0px 5px 11px rgb(8, 46, 102);
           border-radius: 50px;
           border: none;
           border-radius: 0.7rem;

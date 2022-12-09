@@ -5,9 +5,9 @@ export default function Nav(){
     const navigate = useNavigate()
     const {loggedIn:{user}, setLoggedIn} = useLoggedInContext();
     function handleLogout(){
-        localStorage.removeItem("jwt")
-        setLoggedIn({user:null})
-        navigate("/")
+        localStorage.removeItem("jwt");
+        setLoggedIn(()=>({user:null}));
+        navigate("/");
     }
     
     return(

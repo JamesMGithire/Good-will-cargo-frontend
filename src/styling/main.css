@@ -90,6 +90,19 @@ nav *:hover {
   justify-content: center;
   align-items: center;
 }
+.profile-page .user-div div {
+  color: white;
+  font-size: 1.2rem;
+}
+.profile-page .user-div div input::-moz-placeholder {
+  font-size: 1.2rem;
+}
+.profile-page .user-div div input:-ms-input-placeholder {
+  font-size: 1.2rem;
+}
+.profile-page .user-div div input::placeholder {
+  font-size: 1.2rem;
+}
 .profile-page .user-div .button-div button {
   border: none;
   color: white;
@@ -267,13 +280,20 @@ nav *:hover {
 }
 .booking-parent-div .booking-cover-div.active .booking-form-div * {
   margin-top: 1rem;
+  color: #ffffff;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
   font-size: 1.2rem;
-  font-weight: 600;
+}
+.booking-parent-div .booking-cover-div.active .booking-form-div div {
+  margin-top: 1rem;
+  text-align: center;
   color: #ffffff;
 }
 .booking-parent-div .booking-cover-div.active .booking-form-div button {
-  background: #024ba3;
-  box-shadow: inset 0px 0px 5px 11px rgba(8, 46, 102, 0.589);
+  background: #023c83;
+  box-shadow: inset 0px 0px 5px 11px rgb(8, 46, 102);
   border-radius: 50px;
   border: none;
   border-radius: 0.7rem;
@@ -291,6 +311,13 @@ nav *:hover {
   font-size: 1.5rem;
 }
 
+.bio-div {
+  position: absolute;
+  flex-direction: column;
+  width: 100vw;
+  color: white;
+}
+
 .App {
   background-color: #223a51;
   width: 100vw;
@@ -300,7 +327,7 @@ nav *:hover {
 }
 
 .login-div,
-.signup-div {
+.signup-div, .bio-div {
   background-image: url("./bg-imgs/pexels-matthis-volquardsen-2091159.jpg");
   background-repeat: no-repeat;
   background-size: cover;
