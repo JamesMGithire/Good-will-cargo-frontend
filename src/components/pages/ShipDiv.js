@@ -93,9 +93,6 @@ export default function ShipDiv(props) {
                   >
                     Cancel
                   </button>
-                  <button onClick={() => props.handleChangeClick(props.id)}>
-                    Change Details
-                  </button>
                 </>
               )}
             </>

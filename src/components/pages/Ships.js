@@ -25,12 +25,6 @@ export default function Ships({ cargoShips, setCargoShips }) {
     function handleBooking(e, id, countInput) {
       let newCount = parseInt(countInput.current.value)
       let isBooking = e.target.textContent === 'Book' && newCount > 0
-      // if (isBooking) {
-      //   console.log(`${e.target.textContent} , ${id} , ${newCount}`)
-      //   countInput.current.value = null
-      // } else {
-        //   closeBookingForm()
-        // }
       if (isBooking) {
         fetch('https://good-will-cargo-spark-production.up.railway.app/user_cargos', {
           method: 'POST',
@@ -45,7 +39,6 @@ export default function Ships({ cargoShips, setCargoShips }) {
               res
                 .json()
                 .then((cargo) => {
-                  console.log(cargo)
                   setLoggedIn((prev) => ({
                     user: {
                       ...prev.user,
@@ -72,7 +65,7 @@ export default function Ships({ cargoShips, setCargoShips }) {
       }
     }
 
-    setForm(<BookingForm ship={ship} handleBooking={handleBooking} />)
+    setForm(<BookingForm ship={ship} handleBooking={handleBooking}/>)
   }
   return (
     <>
