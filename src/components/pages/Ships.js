@@ -32,7 +32,7 @@ export default function Ships({ cargoShips, setCargoShips }) {
         //   closeBookingForm()
         // }
       if (isBooking) {
-        fetch('/user_cargos', {
+        fetch('https://good-will-cargo-spark-production.up.railway.app/user_cargos', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -54,7 +54,7 @@ export default function Ships({ cargoShips, setCargoShips }) {
                   }))
                 })
                 .then(() => {
-                  fetch('/cargo_ships')
+                  fetch('https://good-will-cargo-spark-production.up.railway.app/cargo_ships')
                     .then((r) => r.json())
                     .then((cargoShips) => {
                       setCargoShips(cargoShips.reverse())
