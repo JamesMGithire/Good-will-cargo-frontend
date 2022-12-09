@@ -8,7 +8,7 @@ export default function Profile({ user }) {
   const nav = useNavigate();
   const { setLoggedIn } = useLoggedInContext();
   function deleteProfile() {
-    fetch('/me', {
+    fetch('https://good-will-cargo-spark-production.up.railway.app/me', {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -29,7 +29,7 @@ export default function Profile({ user }) {
     
     function handleCancelClick(id){
       console.log(id)
-      fetch(`/user_cargos/${id}`,{
+      fetch(`https://good-will-cargo-spark-production.up.railway.app/user_cargos/${id}`,{
         method: 'DELETE',
         headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
       })

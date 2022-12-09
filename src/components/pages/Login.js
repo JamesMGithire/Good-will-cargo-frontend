@@ -10,7 +10,7 @@ export default function Login({setLoggedIn}){
 
     function handleLogin(e){
         e.preventDefault();
-        fetch("/login",{
+        fetch("https://good-will-cargo-spark-production.up.railway.app/login",{
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(userInfo)
@@ -21,7 +21,7 @@ export default function Login({setLoggedIn}){
                 r.json()
             .then(data=>{
                 localStorage.setItem("jwt", data.jwt);
-                fetch("/user_cargos",{
+                fetch("https://good-will-cargo-spark-production.up.railway.app/user_cargos",{
                     headers:{
                         'Authorization': `Bearer ${data.jwt}`,
                         "Content-Type": "application/json"

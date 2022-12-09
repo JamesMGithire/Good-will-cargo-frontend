@@ -10,7 +10,7 @@ export default function Signup({setLoggedIn}){
     function handleSignup(e){
         e.preventDefault();
         console.log(userInfo);
-        fetch("/signup",{
+        fetch("https://good-will-cargo-spark-production.up.railway.app/signup",{
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(userInfo)

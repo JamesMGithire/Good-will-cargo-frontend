@@ -7,13 +7,13 @@ import { useEffect } from 'react'
 function App() {
   const { setLoggedIn } = useLoggedInContext()
   useEffect(() => {
-    fetch('/me', {
+    fetch('https://good-will-cargo-spark-production.up.railway.app/me', {
       headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` },
     }).then((r) => {
       if (r.ok) {
         r.json().then((loggedUser) => {
           setLoggedIn(() => ({ user: { ...loggedUser } }))
-          fetch('/user_cargos', {
+          fetch('https://good-will-cargo-spark-production.up.railway.app/user_cargos', {
             headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` },
           })
             .then((r) => r.json())
