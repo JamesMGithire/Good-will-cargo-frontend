@@ -12,7 +12,7 @@ export default function Body(){
 
     const [cargoShips, setCargoShips] = useState([]);
     useEffect(()=>{
-        fetch("/cargo_ships")
+        fetch("https://good-will-cargo-spark-production.up.railway.app/cargo_ships")
         .then(r=>r.json())
         .then(cargoShips=>setCargoShips(cargoShips.reverse()))
     },[])
