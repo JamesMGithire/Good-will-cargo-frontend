@@ -1,99 +1,108 @@
 import { useRef, useState } from 'react'
 import Booking from './Booking'
+import ShipDiv from './ShipDiv'
 
 export default function Ships({ cargoShips }) {
   const bookingParentDiv = useRef()
-  const bookingForm = (
-    <form>
-      <div>
-        <input type="number" placeholder="cargos" />
-      </div>
-      <button>Book</button>
-    </form>
-  )
+  const bookingSuperParentDiv = useRef()
+  const [bookingForm, setForm] = useState(<></>)
+  const bookButton = useRef()
+  const countInput = useRef()
 
-  function handleBook() {
-    if (bookingParentDiv.current.classList.value.includes("active")){
-      bookingParentDiv.current.classList.remove('active')
-    }else{
-      bookingParentDiv.current.classList.add('active')
+  function closeBookingForm() {
+    if (countInput.current) {
+      countInput.current.value = 0
     }
-    console.log(bookingParentDiv.current.classList)
+    if (bookingParentDiv.current.classList.value.includes('active')) {
+      bookingParentDiv.current.classList.remove('active')
+      bookingSuperParentDiv.current.classList.remove('active')
+    } else {
+      bookingParentDiv.current.classList.add('active')
+      bookingSuperParentDiv.current.classList.add('active')
+    }
+  }
+  function handleBook(ship) {
+    let count = 0
+    closeBookingForm()
+    function handleBooking(e, id) {
+      let isBooking = e.target.textContent == 'Book' && count > 0
+      if (isBooking) {
+        console.log({ count: parseInt(count), cargo_ship_id: id })
+
+        fetch('/user_cargos', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ count: parseInt(count), cargo_ship_id: id }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+            closeBookingForm()
+          })
+          .catch((e) => console.error(e))
+      } else if (count == 0) {
+        closeBookingForm()
+      } else {
+        countInput.current.value = 0
+      }
+    }
+    function hanldeCountChange(e) {
+      count = e.target.value
+      if (count > ship.remaining || count < 1) {
+        bookButton.current.style.backgroundColor = 'red'
+        bookButton.current.textContent = 'Cancel'
+      } else {
+        bookButton.current.style.backgroundColor = 'green'
+        bookButton.current.textContent = 'Book'
+      }
+    }
+    setForm(
+      <form>
+        <p>
+          {ship.current_location} - {ship.destination}
+        </p>
+        <p>{ship.leaving_date}</p>
+        <p>{ship.rate_per_cargo}</p>
+        <div>
+          <input
+            ref={countInput}
+            defaultValue={0}
+            placeholder={`Remaining: ${ship.remaining}`}
+            type="number"
+            onChange={hanldeCountChange}
+          />
+        </div>
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            handleBooking(e, ship.id)
+          }}
+          ref={bookButton}
+        >
+          Book
+        </button>
+        <div>
+          <span>{ship.name}</span>
+        </div>
+      </form>
+    )
   }
   return (
     <>
       <div className="cargo-ships-page">
-      <div ref={bookingParentDiv} className="booking-parent-div">
-        {/* <Booking form={bookingForm}></Booking> */}
-      </div>
+        <div ref={bookingSuperParentDiv} className="booking-parent-div">
+          <Booking
+            form={bookingForm}
+            bookingDivRef={bookingParentDiv}
+            cancelBooking={handleBook}
+          ></Booking>
+        </div>
         {cargoShips.map((ship) => (
-          <ShipDiv key={ship.id} ship={ship} handleBook={handleBook}/>
+          <ShipDiv key={ship.id} ship={ship} handleBook={handleBook} />
         ))}
-      </div>
-    </>
-  )
-}
-
-function ShipDiv(props) {
-  const {
-    id,
-    name,
-    img_url,
-    capacity,
-    remaining,
-    current_location,
-    destination,
-    leaving_date,
-    rate_per_cargo,
-  } = props.ship
-
-  const detailsDiv = useRef()
-  function displayDetails() {
-    if (detailsDiv.current.classList.value.includes('active')) {
-      detailsDiv.current.classList.remove('active')
-    } else {
-      detailsDiv.current.classList.add('active')
-    }
-  }
-
-  return (
-    <>
-      <div className="ship-card">
-        <div
-          className="ship-img-div"
-          style={{ backgroundImage: `url(${img_url})` }}
-          onClick={displayDetails}
-        >
-          <p>{current_location} <strong> to </strong> {destination}</p>
-        </div>
-        <div id={id} ref={detailsDiv} className="ship-details">
-          <div>
-            <p>Name :</p>
-            <p> {name}</p>
-          </div>
-          <div>
-            <p>
-              {current_location} <strong> to </strong> {destination}
-            </p>
-          </div>
-          <div>
-            <p>Leaving :</p>
-            <p> {leaving_date}</p>
-          </div>
-          <div>
-            <p>Rate Per Cargo :</p>
-            <p>Ksh.{rate_per_cargo}</p>
-          </div>
-          <div>
-            <p>Capacity :</p>
-            <p>{capacity}</p>
-          </div>
-          <div>
-            <p>Remaining : </p>
-            <p>{remaining}</p>
-          </div>
-          <button onClick={props.handleBook}>Book</button>
-        </div>
       </div>
     </>
   )

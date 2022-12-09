@@ -1,17 +1,12 @@
-import { useRef } from "react"
+import {AiOutlineClose} from "react-icons/ai"
 
-export default function Booking({form}) {
-  const bookingDiv = useRef();
-  function closeBooking(){
-    console.log(bookingDiv.current.parentNode.classList.value)
-  }
+export default function Booking({ form, bookingDivRef, cancelBooking }) {
   return (
-    <>
-      <div ref={bookingDiv} className="booking-cover-div">Close</div>
-      <div className="booking-div">
-        <div onClick={closeBooking} className="close-booking-div"></div>
+    <div ref={bookingDivRef}  className="booking-cover-div">
+      <AiOutlineClose onClick={cancelBooking} className='close-button'/>
+      <div className="booking-form-div">
         {form}
       </div>
-    </>
+    </div>
   )
 }

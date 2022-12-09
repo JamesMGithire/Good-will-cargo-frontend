@@ -19,7 +19,7 @@ export default function Body(){
     const {setLoggedIn, loggedIn} = useLoggedInContext();
     return(
     <Routes>
-        <Route path="/" element={<LandingPage/>}/>
+        <Route path="*" element={<LandingPage/>}/>
         {loggedIn.user?
         <>
             <Route path="/me" element={<Profile user={loggedIn.user}/>}/>

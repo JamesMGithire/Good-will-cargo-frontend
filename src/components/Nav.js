@@ -9,7 +9,7 @@ export default function Nav(){
         setLoggedIn({user:null})
         navigate("/")
     }
-    console.log(user)
+    
     return(
     <nav>
         {user?

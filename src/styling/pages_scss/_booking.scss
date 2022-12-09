@@ -1,15 +1,64 @@
 .booking-parent-div {
+  position: absolute;
+  width: 100vw;
+  height: 85vh;
   display: none;
+  background: transparent;
   z-index: 2;
-  background-color: rgb(47, 98, 107);
-  opacity: 0.6;
+  left: 0;
   &.active {
-    position: absolute;
-    width: 70vw;
-    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(7.5px);
+    border-radius: 50px;
+  }
+  .booking-cover-div {
+    display: none;
+    background: #041c26a6;
+    opacity: 0.6;
+    &.active {
+      width: 70vw;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(4, 27, 37, 0.788);
+      box-shadow: inset 0px 0px 5px 11px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(17.5px);
+      /* Note: backdrop-filter has minimal browser support */
+
+      border-radius: 101px;
+      .booking-form-div {
+        text-align: center;
+        * {
+          margin-top: 1rem;
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #ffffff;
+        }
+        button {
+          background: #024ba3;
+          box-shadow: inset 0px 0px 5px 11px rgba(8, 46, 102, 0.589);
+          border-radius: 50px;
+          border: none;
+          border-radius: 0.7rem;
+          padding: 0.4rem 1rem;
+        }
+      }
+    }
+    .close-button {
+      position: absolute;
+      top: 0;
+      left: 80vw;
+      background-color: rgb(177, 16, 16);
+      box-shadow: inset 0px 0px 5px 11px rgba(102, 8, 8, 0.589);
+      color: rgb(255, 255, 255);
+      border-radius: 50%;
+      padding: 10px;
+      font-size: 1.5rem;
+    }
   }
 }

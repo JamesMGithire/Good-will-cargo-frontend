@@ -72,6 +72,7 @@ nav *:hover {
 
 .profile-page {
   height: 100vh;
+  overflow-y: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,6 +106,36 @@ nav *:hover {
   box-shadow: inset 0px 0px 10px 10px rgba(64, 6, 27, 0.5);
 }
 
+.user-cargos {
+  background: rgba(0, 71, 72, 0.6509803922);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.page-scroller {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  right: 5vw;
+  top: 40vh;
+  width: 2rem;
+  height: 6rem;
+  border: 1px;
+  border-style: solid;
+  border-radius: 1rem;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+.page-scroller a div {
+  width: 1rem;
+  background-color: white;
+  height: 1rem;
+  margin: 1rem 0;
+  border-radius: 50%;
+}
+
 .cargo-ships-page {
   height: 79.7vh;
   overflow-y: scroll;
@@ -118,6 +149,9 @@ nav *:hover {
   margin: 2rem 1.5rem 0 1.5rem;
   z-index: 1;
 }
+.cargo-ships-page .ship-card * {
+  cursor: pointer;
+}
 .cargo-ships-page .ship-card .ship-img-div {
   width: 17rem;
   height: 13rem;
@@ -127,24 +161,22 @@ nav *:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   border-radius: 39px;
   z-index: 3;
+  filter: brightness(0.6);
 }
-.cargo-ships-page .ship-card .ship-img-div:hover {
-  cursor: pointer;
-  filter: brightness(0.4);
+.cargo-ships-page .ship-card .ship-img-div.active p {
+  transform: scale(0);
+  visibility: hidden;
 }
-.cargo-ships-page .ship-card .ship-img-div:hover p {
+.cargo-ships-page .ship-card .ship-img-div p {
   visibility: visible;
   transform: scale(1);
   font-size: 1.4rem;
-}
-.cargo-ships-page .ship-card .ship-img-div p {
   color: rgb(255, 255, 255);
-  transform: scale(0);
   transition: 0.9s;
   opacity: 1.2;
-  visibility: hidden;
 }
 .cargo-ships-page .ship-card .ship-details {
   z-index: -1;
@@ -155,6 +187,7 @@ nav *:hover {
   display: none;
 }
 .cargo-ships-page .ship-card .ship-details button {
+  margin-top: 0.4rem;
   border: none;
   border-radius: 0.7rem;
   padding: 0.4rem 1rem;
@@ -166,14 +199,14 @@ nav *:hover {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  display: contents;
   position: relative;
   padding: 2rem 0rem;
   z-index: -1;
   border-bottom-right-radius: 39px;
   border-bottom-left-radius: 39px;
-  background: #40636f;
+  background: linear-gradient(25deg, rgb(10, 28, 62) 0%, rgb(45, 132, 149) 100%);
   text-align: center;
+  box-shadow: 6px 6px 33px #2e6f8b, -6px -6px 33px #327997;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,11 +214,10 @@ nav *:hover {
 }
 .cargo-ships-page .ship-card .ship-details.active div {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .cargo-ships-page .ship-card .ship-details.active div p {
-  margin: 0.4rem 1rem;
+  margin: 0.6rem 0.2rem 0rem 0;
+  padding: 0.6rem 0.2rem 0rem 0;
   color: white;
   display: inline-flex;
 }
@@ -194,19 +226,69 @@ nav *:hover {
 }
 
 .booking-parent-div {
+  position: absolute;
+  width: 100vw;
+  height: 85vh;
   display: none;
+  background: transparent;
   z-index: 2;
-  background-color: rgb(47, 98, 107);
-  opacity: 0.6;
+  left: 0;
 }
 .booking-parent-div.active {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-backdrop-filter: blur(7.5px);
+          backdrop-filter: blur(7.5px);
+  border-radius: 50px;
+}
+.booking-parent-div .booking-cover-div {
+  display: none;
+  background: rgba(4, 28, 38, 0.6509803922);
+  opacity: 0.6;
+}
+.booking-parent-div .booking-cover-div.active {
   width: 70vw;
   height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: rgba(4, 27, 37, 0.788);
+  box-shadow: inset 0px 0px 5px 11px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(17.5px);
+          backdrop-filter: blur(17.5px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 101px;
+}
+.booking-parent-div .booking-cover-div.active .booking-form-div {
+  text-align: center;
+}
+.booking-parent-div .booking-cover-div.active .booking-form-div * {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.booking-parent-div .booking-cover-div.active .booking-form-div button {
+  background: #024ba3;
+  box-shadow: inset 0px 0px 5px 11px rgba(8, 46, 102, 0.589);
+  border-radius: 50px;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1rem;
+}
+.booking-parent-div .booking-cover-div .close-button {
+  position: absolute;
+  top: 0;
+  left: 80vw;
+  background-color: rgb(177, 16, 16);
+  box-shadow: inset 0px 0px 5px 11px rgba(102, 8, 8, 0.589);
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.5rem;
 }
 
 .App {
