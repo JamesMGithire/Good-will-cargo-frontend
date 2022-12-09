@@ -23,12 +23,27 @@ export default function Profile({ user }) {
     })
   }
 
-  function handleChangeClick(cargo_ship){
-      console.log(cargo_ship)
-  }
-
-  function handleCancelClick(cargo_ship){
-    console.log(cargo_ship)
+  function handleChangeClick(id){
+      console.log(id)
+    }
+    
+    function handleCancelClick(id){
+      console.log(id)
+      fetch(`/user_cargos/${id}`,{
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
+      })
+      .then(r=>{
+        if(r.ok){
+          setLoggedIn((prev) => ({
+            user: {
+              ...prev.user,
+              cargos: prev.user.cargos.filter(car=>car.id !== id),
+            }
+          }))
+            console.log("ok")
+        }
+      })
   }
   
   return (
@@ -64,6 +79,7 @@ export default function Profile({ user }) {
           user.cargos.map((cargo) => (
             <ShipDiv
               key={uuidv4()}
+              id={cargo.id}
               ship={cargo.cargo_ship}
               amount={cargo.amount}
               count={cargo.count}

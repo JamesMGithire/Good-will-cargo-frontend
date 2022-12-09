@@ -29,9 +29,8 @@ export default function Ships({ cargoShips, setCargoShips }) {
       //   console.log(`${e.target.textContent} , ${id} , ${newCount}`)
       //   countInput.current.value = null
       // } else {
-      //   countInput.current.value = null
-      //   closeBookingForm()
-      // }
+        //   closeBookingForm()
+        // }
       if (isBooking) {
         fetch('/user_cargos', {
           method: 'POST',
@@ -50,7 +49,7 @@ export default function Ships({ cargoShips, setCargoShips }) {
                   setLoggedIn((prev) => ({
                     user: {
                       ...prev.user,
-                      cargos: [...prev.user.cargos, cargo],
+                      cargos: prev.user.cargos ? [...prev.user.cargos, cargo]:[cargo],
                     },
                   }))
                 })
@@ -60,6 +59,7 @@ export default function Ships({ cargoShips, setCargoShips }) {
                     .then((cargoShips) => {
                       setCargoShips(cargoShips.reverse())
                       closeBookingForm()
+                      countInput.current.value = null
                     })
                 })
             }

@@ -15,22 +15,26 @@ export default function Login({setLoggedIn}){
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(userInfo)
         })
-        .then(r=>r.json())
-        .then(data=>{
-            localStorage.setItem("jwt", data.jwt);
-            fetch("/user_cargos",{
-                headers:{
-                    'Authorization': `Bearer ${data.jwt}`,
-                    "Content-Type": "application/json"
-                }
-            })
-            .then(r=>r.json())
-            .then(cargoShips=>{
-                setLoggedIn(prevData=>({...prevData, user:{...prevData.user, cargoShips: cargoShips}}))
-                navigate("/");
-            })
+        .then(r=>{
+            if(r.ok){
+
+                r.json()
+            .then(data=>{
+                localStorage.setItem("jwt", data.jwt);
+                fetch("/user_cargos",{
+                    headers:{
+                        'Authorization': `Bearer ${data.jwt}`,
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(r=>r.json())
+                .then(cargoShips=>{
+                    setLoggedIn(prevData=>({...prevData, user:{...prevData.user, cargoShips: cargoShips}}))
+                    navigate("/");
+                })})
+            }
         })
-    }
+        }
     const loginForm=<form  onSubmit={handleLogin}>
         <div>
             <input type= "text" name="username" onChange={handleChange} placeholder="username"/>
