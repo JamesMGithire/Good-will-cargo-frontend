@@ -4,7 +4,9 @@ nav {
   justify-content: space-between;
   z-index: 2;
   width: 286px;
-  height: 39px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   -webkit-backdrop-filter: blur(17.5px);
           backdrop-filter: blur(17.5px);
   border-radius: 1.4rem;
@@ -36,6 +38,19 @@ nav *:hover {
   text-shadow: 2px 2px 10px rgb(51, 111, 189);
 }
 
+@media only screen and (max-width: 1000px) {
+  nav {
+    top: 1rem;
+    text-align: left;
+    flex-direction: column;
+    justify-content: left;
+    left: 1vw;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 0 1.8rem;
+  }
+}
 .landing-page {
   position: absolute;
   width: 100vw;
