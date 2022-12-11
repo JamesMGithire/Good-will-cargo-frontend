@@ -17,8 +17,36 @@
   z-index: 0;
 }
 
+.custom-cursor {
+  position: absolute;
+  transition: 0.1s;
+  border-radius: 50%;
+  border-color: #1b97a7de;
+  border-style: solid;
+  z-index: 10;
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  div {
+    border-radius: 50%;
+    // z-index: 10;
+    width: 1rem;
+    height: 1rem;
+    background-color: #00b7ffde;
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+  }
+}
+
 .login-div,
-.signup-div, .bio-div {
+.signup-div,
+.bio-div {
   background-image: url('./bg-imgs/pexels-matthis-volquardsen-2091159.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,7 +58,6 @@
   align-items: center;
 }
 /* GOOD-WILL CARGO */
-
 
 .main-input-div {
   width: 40rem;
@@ -90,9 +117,9 @@ input {
   background-position: center;
 }
 *::-webkit-scrollbar {
-  width:  0;
+  width: 0;
   height: 0;
 }
-*{
+* {
   transition: 0.7s;
 }

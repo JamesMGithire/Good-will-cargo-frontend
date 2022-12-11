@@ -407,8 +407,35 @@ nav *:hover {
   z-index: 0;
 }
 
+.custom-cursor {
+  position: absolute;
+  transition: 0.1s;
+  border-radius: 50%;
+  border-color: rgba(27, 151, 167, 0.8705882353);
+  border-style: solid;
+  z-index: 10;
+  pointer-events: none;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.custom-cursor div {
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  background-color: rgba(0, 183, 255, 0.8705882353);
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+
 .login-div,
-.signup-div, .bio-div {
+.signup-div,
+.bio-div {
   background-image: url("./bg-imgs/pexels-matthis-volquardsen-2091159.jpg");
   background-repeat: no-repeat;
   background-size: cover;
