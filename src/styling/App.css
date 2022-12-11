@@ -1,7 +1,6 @@
 @import "main.css";
 .App {
   text-align: center;
-  overflow-x: hidden;
   z-index: 1;
 }
 

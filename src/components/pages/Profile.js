@@ -1,13 +1,21 @@
-import { useNavigate } from 'react-router-dom';
-import { useLoggedInContext } from '../../context/LoggedIn';
-import '../../styling/JavaScript/profilePageStyle';
-import ShipDiv from './ShipDiv';
-import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom'
+import { useLoggedInContext } from '../../context/LoggedIn'
+import '../../styling/JavaScript/profilePageStyle'
+import ShipDiv from './ShipDiv'
+import { v4 as uuidv4 } from 'uuid'
+import { AiOutlineDown, AiOutlineUp } from 'react-icons/ai'
+import { useRef } from 'react'
 
 export default function Profile({ user }) {
   const nav = useNavigate()
   const { setLoggedIn, loggedIn } = useLoggedInContext()
   let userBio = ''
+  const profileDiv = useRef()
+  const userCargosDiv = useRef()
+
+  const scrollUp = () =>profileDiv.current.scrollIntoView({ behavior: 'smooth' });
+
+  const scrollDown = () =>userCargosDiv.current.scrollIntoView({ behavior: 'smooth' });
 
   function deleteProfile() {
     fetch('https://good-will-cargo-spark-production.up.railway.app/me', {
@@ -24,8 +32,6 @@ export default function Profile({ user }) {
       }
     })
   }
-  let shipUpdated = {};
-
 
   function handleCancelClick(id) {
     fetch(
@@ -69,14 +75,24 @@ export default function Profile({ user }) {
   return (
     <>
       <div className="page-scroller">
-        <a className="profile-nav" href="#profile">
-          <div></div>
-        </a>
-        <a className="profile-nav" href="#user-cargos">
-          <div></div>
-        </a>
+        <button
+          onClick={scrollUp}
+          className="profile-nav up"
+        >
+          <div value="up">
+            <AiOutlineUp className="scrollers up" />
+          </div>
+        </button>
+        <button
+          onClick={scrollDown}
+          className="profile-nav down"
+        >
+          <div value="down">
+            <AiOutlineDown className="scrollers down" name="down" />
+          </div>
+        </button>
       </div>
-      <div id="profile" className="profile-page">
+      <div ref={profileDiv} id="profile" className="profile-page">
         <div className="user-div">
           <div className="user-img"></div>
           <div className="username">{user.username}</div>
@@ -99,7 +115,7 @@ export default function Profile({ user }) {
           </div>
         </div>
       </div>
-      <div id="user-cargos" className="cargo-ships-page">
+      <div ref={userCargosDiv} id="user-cargos" className="cargo-ships-page">
         {user.cargos &&
           user.cargos.map((cargo) => (
             <ShipDiv
