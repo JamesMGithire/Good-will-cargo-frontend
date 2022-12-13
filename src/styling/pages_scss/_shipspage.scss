@@ -27,8 +27,7 @@
       overflow: hidden;
       border-radius: 39px;
       z-index: 3;
-
-      filter: brightness(0.6);
+      
       &.active {
         p {
           transform: scale(0);

@@ -245,7 +245,6 @@ nav *:hover {
   overflow: hidden;
   border-radius: 39px;
   z-index: 3;
-  filter: brightness(0.6);
 }
 .cargo-ships-page .ship-card .ship-img-div.active p {
   transform: scale(0);
@@ -409,9 +408,9 @@ nav *:hover {
 
 .custom-cursor {
   position: absolute;
-  transition: 0.1s;
+  transition: 0.01s;
   border-radius: 50%;
-  border-color: rgba(27, 151, 167, 0.8705882353);
+  border-color: rgba(27, 151, 167, 0.6980392157);
   border-style: solid;
   z-index: 10;
   pointer-events: none;
@@ -426,7 +425,7 @@ nav *:hover {
   border-radius: 50%;
   width: 1rem;
   height: 1rem;
-  background-color: rgba(0, 183, 255, 0.8705882353);
+  background-color: rgba(0, 183, 255, 0.5333333333);
   content: "";
   position: absolute;
   border-radius: 50%;
