@@ -9,7 +9,7 @@ import Ships from "./pages/Ships";
 import Bio from "./pages/Bio";
 
 export default function Body(){
-
+    
     const [cargoShips, setCargoShips] = useState([]);
     useEffect(()=>{
         fetch("https://good-will-cargo-spark-production.up.railway.app/cargo_ships")

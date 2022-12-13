@@ -1,3 +1,7 @@
+.wrong-info {
+  color: red;
+}
+
 nav {
   position: fixed;
   display: flex;
