@@ -3,12 +3,12 @@ import InputDiv from '../InputDiv'
 import { useRef, useState } from 'react'
 
 export default function Login({ setLoggedIn }) {
-  const [userInfo, setUserInfo] = useState({});
-  const username = useRef();
-  const password = useRef();
+  const [userInfo, setUserInfo] = useState({})
+  const username = useRef()
+  const password = useRef()
   const navigate = useNavigate()
   const handleChange = (e) => {
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value })
   }
   const [inCorrectInfo, setInCorrectInfo] = useState(false)
 
@@ -19,9 +19,9 @@ export default function Login({ setLoggedIn }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userInfo),
     }).then((r) => {
-        password.current.value="";
-        username.current.value="";
-        setUserInfo({});
+      password.current.value = ''
+      username.current.value = ''
+      setUserInfo({})
       if (r.ok) {
         r.json().then((data) => {
           localStorage.setItem('jwt', data.jwt)
@@ -36,7 +36,7 @@ export default function Login({ setLoggedIn }) {
           )
             .then((r) => r.json())
             .then((cargoShips) => {
-        setInCorrectInfo(false);
+              setInCorrectInfo(false)
               setLoggedIn((prevData) => ({
                 ...prevData,
                 user: { ...prevData.user, cargoShips: cargoShips },
@@ -45,7 +45,7 @@ export default function Login({ setLoggedIn }) {
             })
         })
       } else {
-        setInCorrectInfo(true);
+        setInCorrectInfo(true)
         console.log(username.current)
       }
     })
@@ -74,7 +74,7 @@ export default function Login({ setLoggedIn }) {
         <button>Login</button>
       </div>
       {inCorrectInfo && (
-        <p className='wrong-info'>Wrong username or password</p>
+        <p className="wrong-info">Wrong username or password</p>
       )}
       <div>
         <span>
