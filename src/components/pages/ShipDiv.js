@@ -39,7 +39,7 @@ export default function ShipDiv(props) {
           style={{ backgroundImage: `url(${img_url})` }}
           onClick={displayDetails}
         >
-          <p>
+          <p style={{color:"white"}}>
             {current_location} <strong> to </strong> {destination}
           </p>
         </div>
