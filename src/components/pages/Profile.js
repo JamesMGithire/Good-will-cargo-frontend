@@ -13,9 +13,9 @@ export default function Profile({ user }) {
   const profileDiv = useRef()
   const userCargosDiv = useRef()
 
-  const scrollUp = () =>profileDiv.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollDown = () =>profileDiv.current.scrollIntoView({ behavior: 'smooth' });
 
-  const scrollDown = () =>userCargosDiv.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollUp = () =>userCargosDiv.current.scrollIntoView({ behavior: 'smooth' });
 
   function deleteProfile() {
     fetch('https://good-will-cargo-spark-production.up.railway.app/me', {
@@ -92,6 +92,20 @@ export default function Profile({ user }) {
           </div>
         </button>
       </div>
+      <div ref={userCargosDiv} id="user-cargos" className="cargo-ships-page">
+        {user.cargos &&
+          user.cargos.map((cargo) => (
+            <ShipDiv
+              key={uuidv4()}
+              id={cargo.id}
+              ship={cargo.cargo_ship}
+              amount={cargo.amount}
+              count={cargo.count}
+              handleCancelClick={handleCancelClick}
+            />
+          ))}
+        <div />
+      </div>
       <div ref={profileDiv} id="profile" className="profile-page">
         <div className="user-div">
           <div className="user-img"></div>
@@ -114,20 +128,6 @@ export default function Profile({ user }) {
             </button>
           </div>
         </div>
-      </div>
-      <div ref={userCargosDiv} id="user-cargos" className="cargo-ships-page">
-        {user.cargos &&
-          user.cargos.map((cargo) => (
-            <ShipDiv
-              key={uuidv4()}
-              id={cargo.id}
-              ship={cargo.cargo_ship}
-              amount={cargo.amount}
-              count={cargo.count}
-              handleCancelClick={handleCancelClick}
-            />
-          ))}
-        <div />
       </div>
     </>
   )
