@@ -35,11 +35,11 @@ export default function Login({ setLoggedIn }) {
             },
           )
             .then((r) => r.json())
-            .then((cargoShips) => {
+            .then((cargos) => {
               setInCorrectInfo(false)
               setLoggedIn((prevData) => ({
                 ...prevData,
-                user: { ...prevData.user, cargoShips: cargoShips },
+                user: { ...prevData.user, cargos: cargos },
               }))
               navigate('/')
             })
