@@ -36,7 +36,7 @@ export default function ShipDiv(props) {
         <div
           ref={shipImgDiv}
           className="ship-img-div"
-          style={{ backgroundImage: `url(${img_url})` }}
+          style={{ backgroundImage: `linear-gradient(to bottom, rgba(106, 112, 100, 0.066), rgba(5, 12, 73, 0.808)),url(${img_url})` }}
           onClick={displayDetails}
         >
           <p style={{color:"white"}}>
